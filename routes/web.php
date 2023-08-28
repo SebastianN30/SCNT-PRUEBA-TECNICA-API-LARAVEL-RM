@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\indexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test-database', function () {
+    try {
+        DB::connection()->getPdo();
+        return "Conexión a la base de datos establecida.";
+    } catch (\Exception $e) {
+        return "Error al conectar a la base de datos: " . $e->getMessage();
+    }
+});
 
 Route::get('/', function () {
     return view('welcome');
