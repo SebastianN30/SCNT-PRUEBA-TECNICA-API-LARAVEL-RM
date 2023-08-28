@@ -22,8 +22,6 @@ Route::post('/charactersInsert', [indexController::class, 'insertData']);
 /* EndPoint to delete data */
 Route::delete('/characters/{id}', [indexController::class, 'deleteData']);
 
-Route::get('/consumoApi', [indexController::class, 'apiConsumo']);
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
